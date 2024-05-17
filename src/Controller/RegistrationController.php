@@ -49,17 +49,6 @@ class RegistrationController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
-
-
-     /**
-     * @Route("/admin", name="admin")
-     */
-    public function indexAdmin() : Response 
-    {
-        return $this->render('admin/index.html.twig',);
-    }
-
      
-
 }
+
