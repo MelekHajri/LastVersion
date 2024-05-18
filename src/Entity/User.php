@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 
@@ -40,6 +41,11 @@ class User implements UserInterface
     private $roles = [];
 
     /**
+     * @Assert\Length(
+     *      min = 5,
+     *      minMessage=" Entrer un mot de passe au mini de 5 caracteres"
+     *
+     *     )
      * @var string The hashed password
      * @ORM\Column(type="string")
      */

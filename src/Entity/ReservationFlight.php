@@ -49,6 +49,11 @@ class ReservationFlight
      */
     private $clientId;
 
+    /**
+     * @ORM\Column(type="decimal", precision=10, scale=3)
+     */
+    private $Total;
+
 
     public function getId(): ?int
     {
@@ -128,6 +133,18 @@ class ReservationFlight
     public function setClientId(?User $clientId): self
     {
         $this->clientId = $clientId;
+
+        return $this;
+    }
+
+    public function getTotal(): ?string
+    {
+        return $this->Total;
+    }
+
+    public function setTotal(string $Total): self
+    {
+        $this->Total = $Total;
 
         return $this;
     }
