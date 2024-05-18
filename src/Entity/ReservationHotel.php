@@ -55,6 +55,11 @@ class ReservationHotel
      */
     private $client;
 
+    /**
+     * @ORM\Column(type="decimal", precision=10, scale=3)
+     */
+    private $Total;
+
 
     public function getId(): ?int
     {
@@ -145,6 +150,18 @@ class ReservationHotel
     public function setClient(?User $client): self
     {
         $this->client = $client;
+
+        return $this;
+    }
+
+    public function getTotal(): ?string
+    {
+        return $this->Total;
+    }
+
+    public function setTotal(string $Total): self
+    {
+        $this->Total = $Total;
 
         return $this;
     }
