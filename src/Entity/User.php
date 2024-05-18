@@ -27,10 +27,16 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180)
+     * @Assert\NotBlank(message="Le nom et prénom ne peut pas être vide")
      */
     private $nomPrenom;
 
     /**
+     * @Assert\Length(
+     *      min = 5,
+     *      minMessage=" Entrer un mot de passe au mini de 5 caracteres"
+     *
+     *     )
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $email;
@@ -41,13 +47,13 @@ class User implements UserInterface
     private $roles = [];
 
     /**
+     * @Assert\NotBlank(message=" mot de passe doit etre non vide")
      * @Assert\Length(
      *      min = 5,
      *      minMessage=" Entrer un mot de passe au mini de 5 caracteres"
      *
      *     )
-     * @var string The hashed password
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $password;
 

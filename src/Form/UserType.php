@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class UserType extends AbstractType
 {
@@ -21,7 +22,11 @@ class UserType extends AbstractType
                 'first_options'=>['label'=>'Password'],
                 'second_options'=>['label'=>'Confirm Password']
             ])
-            ->add('DateNaissance')
+            ->add('DateNaissance', DateType::class, [
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd',
+                'years' => range(date('Y') - 100, date('Y')) // Allow dates from 100 years ago to the current year
+            ])
             ->add('Numtel')
         ;
     }

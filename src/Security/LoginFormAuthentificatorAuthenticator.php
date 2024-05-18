@@ -95,10 +95,10 @@ class LoginFormAuthentificatorAuthenticator extends AbstractFormLoginAuthenticat
     
         if ($user instanceof UserInterface) {
             if (in_array('ROLE_ADMIN', $user->getRoles(), true)) {
-                return new RedirectResponse($this->urlGenerator->generate('admin_dashboard')); // Changez 'admin_dashboard' par votre route admin
+                return new RedirectResponse($this->urlGenerator->generate('admin_dashboard')); // l'attribut name dans le controller
             }
     
-            return new RedirectResponse($this->urlGenerator->generate('client_dashboard')); // Changez 'client_dashboard' par votre route client
+            return new RedirectResponse($this->urlGenerator->generate('client_dashboard'));
         }
     
         // Par défaut, redirige vers la page d'accueil
