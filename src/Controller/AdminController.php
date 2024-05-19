@@ -13,8 +13,6 @@ class AdminController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('admin/dashboard.html.twig', [
-            'message' => 'Bonjour Admin',
-        ]);
+        return $this->render('admin/dashboard.html.twig');
     }
 }

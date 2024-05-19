@@ -94,7 +94,8 @@ class LoginFormAuthentificatorAuthenticator extends AbstractFormLoginAuthenticat
         $user = $token->getUser();
     
         if ($user instanceof UserInterface) {
-            if (in_array('ROLE_ADMIN', $user->getRoles(), true)) {
+            //in array car l'attribut role de user dans la base est array
+            if (in_array('ROLE_ADMIN', $user->getRoles(), true)) { //si le user est admin; yhezni l dashbord admin
                 return new RedirectResponse($this->urlGenerator->generate('admin_dashboard')); // l'attribut name dans le controller
             }
     
