@@ -8,6 +8,11 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+.img-custom-height {
+  height: 780px; /* définissez la hauteur souhaitée */
+  object-fit: cover; /* pour s'assurer que l'image garde de bonnes proportions */
+}
+
 :root {
   scroll-behavior: smooth;
 }
