@@ -87,6 +87,11 @@ class User implements UserInterface
      */
     private $tourReservation;
 
+    /**
+     * @ORM\Column(type="string", length=180, nullable=true)
+     */
+    private $reset_token;
+
     public function __construct()
     {
         $this->user = new ArrayCollection();
@@ -332,5 +337,21 @@ class User implements UserInterface
         }
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getResetToken()
+    {
+        return $this->reset_token;
+    }
+
+    /**
+     * @param mixed $reset_token
+     */
+    public function setResetToken($reset_token): void
+    {
+        $this->reset_token = $reset_token;
     }
 }
